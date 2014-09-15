@@ -1,16 +1,13 @@
 var R = require("react-rails");
 
+var router = require("./router");
+
 var app = {
     fluxClass: require("./Flux");
     rootClass: require("./Root");
     componentsClasses: require("./componentsClasses"),
     bootstrapTemplateVarsInServer: function bootstrapTemplateVarsInServer(req) {
-        return {
-            lang: "en-US",
-            description: "React on Rails App Example",
-            title: "React on Rails",
-            client: "/client.js",
-        };
+        return router(req.path);
     },
 };
 
